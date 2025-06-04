@@ -1,0 +1,66 @@
+---
+title: "INST 462 Group Project"
+author: "CJ Kipp/Hayford D/Ameer/Taryn/Arvin
+date: "2024-12-03"
+output: html_document
+---
+```{r}
+df <- read.csv("StressLevelDataset.csv")
+#Cleaning 
+colnames(df)
+stressDF <- df[, c("anxiety_level", "self_esteem", "depression", "sleep_quality", "academic_performance", "extracurricular_activities", "stress_level")]
+View(stressDF)
+
+
+```
+```{r}
+write.csv(stressDF, file = "stressDf.csv")
+```
+
+What we did is we decreased the number of columns from 21 variables to 14 to have a more precise focus. The dataset itself is clean, therefore not much tidying is needed. We will also note that each observation is an individual who answered their level to each column respectively. the following scales for answering the topic of each column is; Scales; 0-30(anxiety_level, self-esteem, depression) and 0-5 (everything else), but mental health history is 0(no) or 1(yes)
+```{r}
+#code for data visualizations go here
+library(ggplot2)
+  
+ggplot(stressDF, aes(x = anxiety_level, y = sleep_quality)) +
+  geom_count() + geom_jitter(alpha = 0.1) + 
+  stat_smooth(method = "lm", 
+              geom = "smooth") +
+  labs(title = "Relationship Between Anxiety Level and Sleep Quality",
+       x = "Anxiety Level",
+       y = "Sleep Quality")
+
+ggplot(stressDF, aes(x = depression, y = sleep_quality)) +
+  geom_count() + geom_jitter(alpha = 0.1) + 
+  stat_smooth(method = "lm", 
+              geom = "smooth") + 
+  labs(title = "Relationship Between Depression and Sleep Quality",
+       x = "Depression",
+       y = "Sleep Quality")
+  
+ggplot(stressDF, aes(x = academic_performance, y = sleep_quality)) +
+  geom_count() + geom_jitter(alpha = 0.1) + 
+  stat_smooth(method = "lm", 
+              geom = "smooth") + 
+  labs(title = "Relationship Between Academic Performance and Sleep Quality",
+       x = "Academic Perfomance",
+       y = "Sleep Quality")
+
+ggplot(stressDF, aes(x = self_esteem, y = sleep_quality)) +
+  geom_count() + geom_jitter(alpha = 0.1) + 
+  stat_smooth(method = "lm", 
+              geom = "smooth") + 
+  labs(title = "Relationship Between Self Esteem and Sleep Quality",
+       x = "Self Esteem",
+       y = "Sleep Quality")
+
+ggplot(stressDF, aes(x = extracurricular_activities, y = sleep_quality)) +
+  geom_count() + geom_jitter(alpha = 0.1) + 
+  stat_smooth(method = "lm", 
+              geom = "smooth") + 
+  labs(title = "Relationship Between Extracurricular Activities and Sleep Quality",
+       x = "Extracurricular Activities",
+       y = "Sleep Quality")
+```
+
+When it came to creating our visualizations, we looked at a few variables in relation to the participant's sleep quality. We thought comparing sleep quality to anxiety level, depression, self esteem, academic performance, and extracurricular activities. We utilized ggplot2 with count, jitter, and smooth to create multiple visualizations depicting the relationships between our chosen variables and sleep quality. geom_point and geom_jitter was used for overlapping counts to depict how many of each observation was counted. stat_smooth was used to help with the visualization of the scatter plots. We also added a line of best fit for each visualization to see positive and negative coorelations. 
