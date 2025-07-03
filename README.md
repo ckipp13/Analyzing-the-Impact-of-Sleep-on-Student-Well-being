@@ -11,6 +11,15 @@ Modern students face mounting academic and extracurricular demands, often at the
 - Investigate how self-esteem, academic achievement, and extracurricular load influence sleep.
 - Provide actionable insights for promoting student well-being.
 
+## 🧭 Navigation
+
+This repository contains the following key files:
+
+- 📄 [`462_final_update.Rmd`](462_final_update.Rmd) — R Markdown file containing the RStudio code used for data cleaning, analysis, and generating visualizations.
+- 📊 [`StressLevelDataset.csv`](StressLevelDataset.csv) — Dataset used for all analyses in the project.
+- 📑 [`sleepDeprivedDreams.pdf`](sleepDeprivedDreams.pdf) — Project report including overview, insights, and final visualizations produced from the R Markdown code.
+
+
 ## 🛠️ Tools & Role
 
 - **Role:** Colton - Lead Developer & Data Analyst, Taryn - Data Engineer, Faique - Communications, Hayford & Arvin- Graphic Designer
